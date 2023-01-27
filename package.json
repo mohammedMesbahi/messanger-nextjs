@@ -1,17 +1,28 @@
 {
   "name": "messanger-nextjs",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ed mesbahi <mesbahi.ed@outlook.com>",
+  "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "nodemon server.js",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start -p 8000"
   },
   "dependencies": {
-    "@next/font": "13.1.5",
-    "next": "13.1.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.6",
+    "@next/font": "^13.1.5",
+    "axios": "^1.2.5",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0",
+    "next": "^13.1.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "validator": "^13.7.0"
   }
 }
