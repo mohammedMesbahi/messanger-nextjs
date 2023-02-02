@@ -1,5 +1,9 @@
-const User = require('../modules/User')
-const bcrypt = require('bcrypt')
+const User = require('../models/User');
+const bcrypt = require('bcrypt');
+var passport = require("passport");
+var { ensurAuthenticated, forwardAuthenticated } = require('../config/auth');
+
+// signup hundler
 module.exports.signup_post = async (req, res) => {
   const { userName, email, password1, password2 } = req.body;
   const errors = []
@@ -41,6 +45,22 @@ module.exports.signup_post = async (req, res) => {
     }
   })
 }
+exports.signin_post = (req, res, next) => {
+  passport.authenticate('local', {
+    successRedirect: '/chat',
+    failureRedirect: '/signin'
+  })(req, res, next);
+}
+// logout handler
+exports.logout_get = (req, res, next) =>  {
+
+  req.logout(function (err) {
+    if (err) { 
+      return next(err); 
+    }
+  })
+  res.redirect('/signin');
+};
 // handle errors
 const handleErrors = (err) => {
   console.log(err.message, err.code);
